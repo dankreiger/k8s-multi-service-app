@@ -18,3 +18,9 @@ To setup locally, add urls `ticketing.dev` to `/etc/hosts`
 # /etc/hosts
 127.0.0.1 ticketing.dev
 ```
+
+Add `JWT_KEY` used in `auth-depl.yaml`
+
+```sh
+$ kubectl create secret generic jwt-secret --from-literal=JWT_KEY=somesecret
+```
