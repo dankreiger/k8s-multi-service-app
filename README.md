@@ -24,3 +24,16 @@ Add `JWT_KEY` used in `auth-depl.yaml`
 ```sh
 $ kubectl create secret generic jwt-secret --from-literal=JWT_KEY=somesecret
 ```
+
+---
+
+To bypass chrome security warning, type `thisisunsafe` in browser.
+
+---
+
+If changes in browser do not show, delete client pod and let it regenerate:
+
+```sh
+$ kubectl get pods # copy pod name
+$ kubectl delete pod POD_NAME
+```
