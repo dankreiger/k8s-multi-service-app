@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import Router from 'next/router';
 import useRequest from '../../hooks/use-request';
 
 export default () => {
@@ -9,10 +9,12 @@ export default () => {
     url: '/api/users/signup',
     method: 'post',
     body: { email, password },
+    onSuccess: () => Router.push('/'),
   });
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     doRequest();
   };
   return (
@@ -30,7 +32,7 @@ export default () => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="password">Email Address</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
