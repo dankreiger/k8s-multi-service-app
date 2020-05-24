@@ -2,11 +2,20 @@
   "name": "@puppytickets/common",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
+  "license": "ISC",
   "author": "",
-  "license": "ISC"
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build/**/*"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "del ./build/*"
+  },
+  "devDependencies": {
+    "del-cli": "^3.0.1",
+    "typescript": "^3.9.3"
+  }
 }
