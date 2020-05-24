@@ -14,7 +14,6 @@ export default () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
     doRequest();
   };
   return (
