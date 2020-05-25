@@ -5,6 +5,9 @@ import cookieSession from 'cookie-session';
 
 import { errorHandler, NotFoundError, currentUser } from '@puppytickets/common';
 import { createTicketRouter } from './routes/new';
+import { showTicketRouter } from './routes/show';
+import { indexTicketRouter } from './routes';
+import { updateTickerRouter } from './routes/update';
 
 const app = express();
 app.set('trust proxy', true); // ingress nginx
@@ -19,6 +22,9 @@ app.use(
 
 app.use(currentUser);
 app.use(createTicketRouter);
+app.use(showTicketRouter);
+app.use(indexTicketRouter);
+app.use(updateTickerRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();
