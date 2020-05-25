@@ -21,7 +21,7 @@ const start = async () => {
   }
 
   app.listen(PORT, () => {
-    console.log(`AUTH puppy service listening on port ${PORT}`);
+    console.log(`TICKETS puppy service listening on port ${PORT}`);
   });
 };
 
