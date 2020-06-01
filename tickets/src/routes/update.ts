@@ -7,6 +7,8 @@ import {
 } from '@puppytickets/common';
 import { body } from 'express-validator';
 import { Ticket } from '../models/ticket';
+import { TicketUpdatedPublisher } from '../events/publishers/ticket-updated-publisher';
+import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 
@@ -32,7 +34,17 @@ router.put(
     }
 
     ticket.set({ title: req.body.title, price: req.body.price });
+
     await ticket.save();
+    await new TicketUpdatedPublisher(natsWrapper.client).publish({
+      id: ticket.id,
+      title: ticket.title,
+      price: ticket.price,
+      userId: ticket.userId,
+    });
+    // future implementation
+    // - be able to rollback save and event publish
+    // if either of them fail
 
     res.send(ticket);
   }
