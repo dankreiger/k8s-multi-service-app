@@ -18,75 +18,76 @@ describe('new', () => {
       .send({});
     expect(response.status).not.toBe(401);
   });
-  it('returns an error if an invalid title is provided', async () => {
-    await request(app)
-      .post('/api/tickets')
-      .set('Cookie', global.signin())
-      .send({
-        title: '',
-        price: 10,
-      })
-      .expect(400);
+});
 
-    await request(app)
-      .post('/api/tickets')
-      .set('Cookie', global.signin())
-      .send({
-        price: 10,
-      })
-      .expect(400);
-  });
-  it('returns an error if an invalid price is provided', async () => {
-    await request(app)
-      .post('/api/tickets')
-      .set('Cookie', global.signin())
-      .send({
-        title: 'ksksjkjdh',
-        price: -10,
-      })
-      .expect(400);
+it('returns an error if an invalid title is provided', async () => {
+  await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      title: '',
+      price: 10,
+    })
+    .expect(400);
 
-    await request(app)
-      .post('/api/tickets')
-      .set('Cookie', global.signin())
-      .send({
-        title: 'ksksjkjdh',
-      })
-      .expect(400);
-  });
-  it('creates a ticket with valid inputs', async () => {
-    // add in a check to make sure a ticket was saved
-    let tickets = await Ticket.find({});
-    expect(tickets.length).toBe(0);
+  await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      price: 10,
+    })
+    .expect(400);
+});
+it('returns an error if an invalid price is provided', async () => {
+  await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      title: 'ksksjkjdh',
+      price: -10,
+    })
+    .expect(400);
 
-    const title = 'djdoidjoijd';
-    const price = 50;
-    await request(app)
-      .post('/api/tickets')
-      .set('Cookie', global.signin())
-      .send({
-        title,
-        price,
-      })
-      .expect(201);
+  await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      title: 'ksksjkjdh',
+    })
+    .expect(400);
+});
+it('creates a ticket with valid inputs', async () => {
+  // add in a check to make sure a ticket was saved
+  let tickets = await Ticket.find({});
+  expect(tickets.length).toBe(0);
 
-    tickets = await Ticket.find({});
-    expect(tickets.length).toBe(1);
-    expect(tickets[0].title).toBe(title);
-    expect(tickets[0].price).toBe(price);
-  });
-  it('publishes an event', async () => {
-    const title = 'djdoidjoijd';
-    const price = 50;
-    await request(app)
-      .post('/api/tickets')
-      .set('Cookie', global.signin())
-      .send({
-        title,
-        price,
-      })
-      .expect(201);
+  const title = 'djdoidjoijd';
+  const price = 50;
+  await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      title,
+      price,
+    })
+    .expect(201);
 
-    expect(natsWrapper.client.publish).toHaveBeenCalled();
-  });
+  tickets = await Ticket.find({});
+  expect(tickets.length).toBe(1);
+  expect(tickets[0].title).toBe(title);
+  expect(tickets[0].price).toBe(price);
+});
+it('publishes an event', async () => {
+  const title = 'djdoidjoijd';
+  const price = 50;
+  await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      title,
+      price,
+    })
+    .expect(201);
+
+  expect(natsWrapper.client.publish).toHaveBeenCalled();
 });

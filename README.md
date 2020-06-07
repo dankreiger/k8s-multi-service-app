@@ -37,3 +37,9 @@ If changes in browser do not show, delete client pod and let it regenerate:
 $ kubectl get pods # copy pod name
 $ kubectl delete pod POD_NAME
 ```
+
+---
+
+If there is no connection, run `kubectl get pods -n ingress-nginx` to see if ingress nginx has a running pod.
+
+If not, reinstall: https://kubernetes.github.io/ingress-nginx/deploy/#docker-for-mac

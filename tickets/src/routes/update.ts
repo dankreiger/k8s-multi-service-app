@@ -4,6 +4,7 @@ import {
   NotFoundError,
   requireAuth,
   NotAuthorizedError,
+  BadRequestError,
 } from '@puppytickets/common';
 import { body } from 'express-validator';
 import { Ticket } from '../models/ticket';
@@ -28,6 +29,11 @@ router.put(
       throw new NotFoundError();
     }
 
+    // is reserved
+    if (ticket.orderId) {
+      throw new BadRequestError('Cannot edit a reserved ticket');
+    }
+
     // current user defined in requireAuth middleware
     if (ticket.userId !== req.currentUser!.id) {
       throw new NotAuthorizedError();
@@ -41,6 +47,7 @@ router.put(
       title: ticket.title,
       price: ticket.price,
       userId: ticket.userId,
+      version: ticket.version,
     });
     // future implementation
     // - be able to rollback save and event publish

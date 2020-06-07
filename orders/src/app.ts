@@ -1,0 +1,36 @@
+import express from 'express';
+import 'express-async-errors';
+import { json } from 'body-parser';
+import cookieSession from 'cookie-session';
+
+import { errorHandler, NotFoundError, currentUser } from '@puppytickets/common';
+import { cancelOrderRouter } from './routes/cancel';
+import { indexOrderRouter } from './routes';
+import { newOrderRouter } from './routes/new';
+import { showOrderRouter } from './routes/show';
+
+const app = express();
+app.set('trust proxy', true); // ingress nginx
+
+app.use(json());
+app.use(
+  cookieSession({
+    signed: false,
+    secure: process.env.NODE_ENV !== 'test',
+  })
+);
+
+app.use(currentUser);
+
+app.use(cancelOrderRouter);
+app.use(indexOrderRouter);
+app.use(newOrderRouter);
+app.use(showOrderRouter);
+
+app.all('*', async () => {
+  throw new NotFoundError();
+});
+
+app.use(errorHandler);
+
+export { app };
