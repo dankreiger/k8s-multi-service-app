@@ -16,8 +16,8 @@
     "pub": "git add . && git commit -m \"chore(package): update common package\" && npm version patch && npm run build && npm publish"
   },
   "devDependencies": {
-    "del-cli": "^3.0.1",
-    "typescript": "^3.9.3"
+    "del-cli": "3.0.1",
+    "typescript": "3.9.3"
   },
   "dependencies": {
     "@types/cookie-session": "^2.0.39",
