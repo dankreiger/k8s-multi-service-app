@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@puppytickets/common": "1.0.11",
+    "@puppytickets/common": "1.0.12",
     "@types/bull": "3.14.0",
     "bull": "3.14.0",
     "ts-node-dev": "1.1.6",
