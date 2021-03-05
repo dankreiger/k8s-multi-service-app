@@ -1,0 +1,24 @@
+{
+  "name": "k8s-multi-service-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "begin": "ts-node begin.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dankreiger/k8s-multi-service-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dankreiger/k8s-multi-service-app/issues"
+  },
+  "homepage": "https://github.com/dankreiger/k8s-multi-service-app#readme",
+  "devDependencies": {
+    "commander": "7.1.0",
+    "ts-node": "9.1.1",
+    "typescript": "4.2.3"
+  }
+}
