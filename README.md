@@ -1,6 +1,17 @@
-### k8s multi-service app
+# k8s multi-service app
 
 app is called "ticketing"
+
+Note:
+
+To cleanup all resources (including restarting docker images):
+
+```
+skaffold delete
+
+```
+
+https://skaffold.dev/docs/pipeline-stages/cleanup/
 
 Prerequistes:
 
@@ -22,7 +33,19 @@ To setup locally, add urls `ticketing.dev` to `/etc/hosts`
 Add `JWT_KEY` used in `auth-depl.yaml`
 
 ```sh
-$ kubectl create secret generic jwt-secret --from-literal=JWT_KEY=somesecret
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=somesecret
+```
+
+Add `STRIPE_KEY` used in `payments-depl.yaml`
+
+```sh
+kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=somesecret
+```
+
+Add `STRIPE_PUBLISHABLE_KEY` used in `client-depl.yaml`
+
+```sh
+kubectl create secret generic stripe-publishable-key --from-literal=STRIPE_PUBLISHABLE_KEY=somesecret
 ```
 
 ---
@@ -43,3 +66,4 @@ $ kubectl delete pod POD_NAME
 If there is no connection, run `kubectl get pods -n ingress-nginx` to see if ingress nginx has a running pod.
 
 If not, reinstall: https://kubernetes.github.io/ingress-nginx/deploy/#docker-for-mac
+
