@@ -2,13 +2,14 @@
   "name": "client",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "scripts": {
+    "sort": "sort-package-json",
     "dev": "next"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "axios": "0.21.1",
     "bootstrap": "4.6.0",

@@ -2,23 +2,46 @@
   "name": "k8s-multi-service-app",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "begin": "ts-node begin.ts"
+  "description": "app is called \"ticketing\"",
+  "keywords": [],
+  "homepage": "https://github.com/dankreiger/k8s-multi-service-app#readme",
+  "bugs": {
+    "url": "https://github.com/dankreiger/k8s-multi-service-app/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dankreiger/k8s-multi-service-app.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dankreiger/k8s-multi-service-app/issues"
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "skaffold delete",
+    "dev": "skaffold dev",
+    "postinstall": "./do postinstall",
+    "sort": "./do sort",
+    "prepare": "husky install"
   },
-  "homepage": "https://github.com/dankreiger/k8s-multi-service-app#readme",
   "devDependencies": {
-    "commander": "7.1.0",
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@types/concurrently": "^6.0.0",
+    "chalk": "4.1.0",
+    "commitlint": "^12.0.1",
+    "concurrently": "6.0.0",
+    "husky": "^5.1.3",
+    "randoma": "1.3.0",
+    "sort-package-json": "1.49.0",
     "ts-node": "9.1.1",
     "typescript": "4.2.3"
-  }
+  },
+  "microservices": [
+    "auth",
+    "client",
+    "expiration",
+    "nats-test",
+    "orders",
+    "payments",
+    "tickets"
+  ]
 }
