@@ -8,7 +8,6 @@ To cleanup all resources (including restarting docker images):
 
 ```
 skaffold delete
-
 ```
 
 https://skaffold.dev/docs/pipeline-stages/cleanup/
