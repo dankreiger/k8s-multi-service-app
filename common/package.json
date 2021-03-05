@@ -25,7 +25,7 @@
     "@types/jsonwebtoken": "8.5.0",
     "cookie-session": "1.4.0",
     "express": "4.17.1",
-    "express-validator": "6.5.0",
+    "express-validator": "6.10.0",
     "jsonwebtoken": "8.5.1",
     "node-nats-streaming": "0.3.2"
   }
