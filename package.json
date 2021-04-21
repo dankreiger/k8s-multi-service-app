@@ -26,7 +26,7 @@
     "@commitlint/cli": "12.1.1",
     "@commitlint/config-conventional": "12.1.1",
     "@types/concurrently": "6.0.1",
-    "chalk": "4.1.0",
+    "chalk": "4.1.1",
     "commitlint": "12.1.1",
     "concurrently": "6.0.2",
     "husky": "5.2.0",
