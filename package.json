@@ -28,7 +28,7 @@
     "@types/concurrently": "6.0.1",
     "chalk": "4.1.1",
     "commitlint": "12.1.4",
-    "concurrently": "6.1.0",
+    "concurrently": "6.2.0",
     "husky": "5.2.0",
     "randoma": "1.3.0",
     "sort-package-json": "1.50.0",
