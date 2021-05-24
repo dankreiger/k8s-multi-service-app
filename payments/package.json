@@ -29,7 +29,7 @@
     "express-async-errors": "3.1.1",
     "express-validator": "6.11.1",
     "jsonwebtoken": "8.5.1",
-    "mongoose": "5.12.10",
+    "mongoose": "5.12.11",
     "mongoose-update-if-current": "1.4.0",
     "stripe": "8.149.0",
     "ts-node-dev": "1.1.6",
