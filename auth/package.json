@@ -23,7 +23,7 @@
     "@puppytickets/common": "1.0.13",
     "@types/cookie-session": "2.0.42",
     "@types/express": "4.17.12",
-    "@types/jsonwebtoken": "8.5.1",
+    "@types/jsonwebtoken": "8.5.2",
     "@types/mongoose": "5.11.96",
     "cookie-session": "1.4.0",
     "express": "4.17.1",
