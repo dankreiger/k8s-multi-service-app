@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@types/cookie-session": "2.0.43",
-    "@types/express": "4.17.12",
+    "@types/express": "4.17.13",
     "@types/jsonwebtoken": "8.5.3",
     "cookie-session": "1.4.0",
     "express": "4.17.1",
