@@ -11,7 +11,7 @@
     "dev": "next"
   },
   "dependencies": {
-    "axios": "0.21.1",
+    "axios": "0.21.2",
     "bootstrap": "4.6.0",
     "next": "10.2.3",
     "react": "17.0.2",
