@@ -28,7 +28,7 @@
     "express": "4.18.2",
     "express-async-errors": "3.1.1",
     "express-validator": "6.15.0",
-    "jsonwebtoken": "8.5.1",
+    "jsonwebtoken": "9.0.0",
     "mongoose": "5.13.22",
     "mongoose-update-if-current": "1.4.0",
     "stripe": "8.222.0",
